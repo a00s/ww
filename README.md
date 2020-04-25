@@ -2,7 +2,7 @@ Message board test
 # To run:
 nodemon -I server.js
 
-# Otherwise to run in background
+# To run in background
 nohup nodemon -I server.js
 
 # SEND MESSAGE
@@ -28,4 +28,3 @@ curl -s --raw -X POST -k -H "Content-Type: application/json" -i 'https://whatwap
 
 # SEARCH MESSAGES BY PROPERTY DETAIL
 curl -s --raw -X POST -k -H "Content-Type: application/json" -i 'https://whatwapp.optwoo.com/searchdetails' -d '{"email": "admin@whatwapp.com", "password": "admin", "value_key": "version", "value_text":"1"}'
-
