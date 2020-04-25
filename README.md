@@ -1,4 +1,17 @@
-Message board test
+# Message board test
+
+# Creating the database
+sudo mysql
+create database whatwapp
+exit
+sudo mysql whatwapp < mysqltables.dump
+
+# Configuring user, password and seed key
+The configuration example is located on the file .env
+
+# Installing
+npm install
+
 # To run:
 nodemon -I server.js
 
