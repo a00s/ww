@@ -1,8 +1,8 @@
 Message board test
-To run:
+# To run:
 nodemon -I server.js
 
-Otherwise to run in background
+# Otherwise to run in background
 nohup nodemon -I server.js
 
 # SEND MESSAGE
