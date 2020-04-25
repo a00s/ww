@@ -1,0 +1,158 @@
+-- MySQL dump 10.13  Distrib 5.7.29, for Linux (x86_64)
+--
+-- Host: localhost    Database: whatwapp
+-- ------------------------------------------------------
+-- Server version	5.7.29-0ubuntu0.18.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `contracts`
+--
+
+DROP TABLE IF EXISTS `contracts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contracts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `date_start` timestamp NULL DEFAULT NULL,
+  `type` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contracts`
+--
+
+LOCK TABLES `contracts` WRITE;
+/*!40000 ALTER TABLE `contracts` DISABLE KEYS */;
+INSERT INTO `contracts` VALUES (1,3,'2020-04-24 23:09:54','premium'),(2,3,'2020-01-01 00:00:00','standard');
+/*!40000 ALTER TABLE `contracts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `message_details`
+--
+
+DROP TABLE IF EXISTS `message_details`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `message_details` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message_id` int(11) NOT NULL,
+  `value_key` varchar(255) NOT NULL,
+  `value_text` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `message_details`
+--
+
+LOCK TABLES `message_details` WRITE;
+/*!40000 ALTER TABLE `message_details` DISABLE KEYS */;
+INSERT INTO `message_details` VALUES (1,31,'version','1'),(2,31,'device','android');
+/*!40000 ALTER TABLE `message_details` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_from` int(11) NOT NULL,
+  `id_to` int(11) DEFAULT NULL,
+  `date_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_viewed` timestamp NULL DEFAULT NULL,
+  `message` longtext,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `messages`
+--
+
+LOCK TABLES `messages` WRITE;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+INSERT INTO `messages` VALUES (1,3,NULL,'2020-04-25 01:13:56',NULL,'testing message'),(2,3,NULL,'2020-04-25 01:14:25',NULL,'testing message'),(3,3,NULL,'2020-04-25 01:14:52',NULL,'testing message'),(4,3,NULL,'2020-04-25 01:16:12',NULL,'testing message'),(5,3,NULL,'2020-04-25 01:18:39',NULL,'testing message'),(6,3,NULL,'2020-04-25 01:18:48',NULL,'testing message'),(7,3,NULL,'2020-04-25 01:26:53',NULL,'testing message'),(8,3,NULL,'2020-04-25 01:27:50',NULL,'testing message'),(9,3,NULL,'2020-04-25 01:28:25',NULL,'testing message'),(10,3,NULL,'2020-04-25 01:30:32',NULL,'testing message'),(11,3,NULL,'2020-04-25 01:31:29',NULL,'testing message'),(12,3,NULL,'2020-04-25 01:32:39',NULL,'testing message'),(13,3,NULL,'2020-04-25 01:32:57',NULL,'testing message'),(14,3,NULL,'2020-04-25 01:34:50',NULL,'testing message'),(15,3,NULL,'2020-04-25 01:36:31',NULL,'testing message'),(16,3,NULL,'2020-04-25 01:36:52',NULL,'testing message'),(17,3,NULL,'2020-04-25 01:37:05',NULL,'testing message'),(18,3,NULL,'2020-04-25 01:38:03',NULL,'testing message'),(19,3,NULL,'2020-04-25 01:38:36',NULL,'testing message'),(20,3,NULL,'2020-04-25 01:39:06',NULL,'testing message'),(21,3,NULL,'2020-04-25 01:39:42',NULL,'testing message'),(22,3,NULL,'2020-04-25 01:39:57',NULL,'testing message'),(23,3,NULL,'2020-04-25 01:41:47',NULL,'testing message'),(24,3,NULL,'2020-04-25 01:43:11',NULL,'testing message'),(25,3,NULL,'2020-04-25 01:43:36',NULL,'testing message'),(26,3,NULL,'2020-04-25 01:44:27',NULL,'testing message'),(27,3,NULL,'2020-04-25 01:47:09',NULL,'testing message'),(28,3,NULL,'2020-04-25 01:47:54',NULL,'testing message'),(29,3,NULL,'2020-04-25 01:48:09',NULL,'testing message'),(30,3,NULL,'2020-04-25 01:50:49',NULL,'testing message'),(31,3,NULL,'2020-04-25 01:51:08',NULL,'testing message');
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permissions`
+--
+
+DROP TABLE IF EXISTS `permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permissions`
+--
+
+LOCK TABLES `permissions` WRITE;
+/*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
+INSERT INTO `permissions` VALUES (1,2,'operator'),(2,3,'customer');
+/*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (2,'admin@whatwapp.com','%qñç¬Ø½âYúÒW°’;','Beethoven'),(3,'user@user.com','[¶\Z}µ_m\rÑ1Í\ZÅÄdÜ','Ze');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-04-25 12:15:32
