@@ -2,8 +2,11 @@
 
 # Creating the database
 sudo mysql
+
 create database whatwapp
+
 exit
+
 sudo mysql whatwapp < mysqltables.dump
 
 # Configuring user, password and seed key
